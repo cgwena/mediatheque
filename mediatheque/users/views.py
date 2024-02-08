@@ -12,8 +12,8 @@ def is_staff_user(user):
 @login_required
 @user_passes_test(is_staff_user)
 def users(request):
-    user = User.objects.all()
-    return render(request, "users/users.html", {"user": user})
+    users = User.objects.all()
+    return render(request, "users/users.html", {"users": users})
 
 
 @login_required
@@ -32,6 +32,7 @@ def user_create(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
             user.save()
+            return redirect(request, 'users/users.html')
     else:
         form = UserForm()
     return render(request, "users/user_create.html", {"form": form})
@@ -69,6 +70,6 @@ def home(request):
     jeux = JeuDePlateau.objects.all()
     return render(
         request,
-        "users/home.html",
+        "users/user_home.html",
         {"livres": livres, "dvds": dvds, "cds": cds, "jeux": jeux},
     )
