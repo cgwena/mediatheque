@@ -20,11 +20,11 @@
     {% endif %}
     
     {% if media.disponible %}
-        <a href="{% url 'media_emprunt' media.id %}">Emprunter</a>
+        <a href="{% url 'media_loan' media.id %}">Emprunter</a>
     {% else %}
-        <a href="{% url 'media_emprunt' media.id %}">Rapporter</a>
+        <a href="{% url 'media_loan' media.id %}">Rapporter</a>
     {% endif %}
-    <a href="{% url 'media' %}">Retour à la liste des medias</a> -
+    <a href="{% url 'media' %}">Retour à la liste des medias</a>
     
 </body>
 

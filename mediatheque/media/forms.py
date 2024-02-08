@@ -1,11 +1,5 @@
 from django import forms
-from bibliothecaire.models import User, Livre, Dvd, Cd, JeuDePlateau, Emprunt
-
-
-class MembreForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ("username", "first_name", "last_name", "is_staff", "password")
+from media.models import Livre, Dvd, Cd, JeuDePlateau
 
 
 class LivreForm(forms.ModelForm):
@@ -32,7 +26,3 @@ class JeuForm(forms.ModelForm):
         fields = ("name", "createur")
 
 
-class EmpruntForm(forms.ModelForm):
-    class Meta:
-        model = Emprunt
-        fields = ("emprunteur", "date")

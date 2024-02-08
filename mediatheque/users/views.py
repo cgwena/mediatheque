@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from bibliothecaire.models import Livre, Dvd, Cd, JeuDePlateau
+from media.models import Livre, Dvd, Cd, JeuDePlateau
 from users.models import User
 from users.forms import UserForm
 from django.contrib.auth.decorators import login_required, user_passes_test

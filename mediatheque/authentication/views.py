@@ -24,9 +24,9 @@ def user_login(request):
                     return redirect("home")
                 else:
                     # Redirect to a different page if is_staff is False
-                    return redirect("membre_home")
+                    return redirect("user_home")
     return render(
-        request, "bibliothecaire/login.html", {"form": form, "message": message}
+        request, "authentication/login.html", {"form": form, "message": message}
     )
 
 
