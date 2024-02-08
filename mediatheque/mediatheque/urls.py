@@ -1,22 +1,18 @@
-"""
-URL configuration for mediatheque project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+import media, loans, users
+from media import urls as media_urls
+from loans import urls as loans_urls
+from users import urls as users_urls
+
+
+import authentication.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("", authentication.views.user_login, name="login"),
+    path("home", media.views.home, name="home"),
+    path("media/", include(media_urls)),
+    path("loans/", include(loans_urls)),
+    path("user/", include(users_urls)),
 ]

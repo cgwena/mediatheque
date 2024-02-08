@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from media.models import Livre, Dvd, Cd, JeuDePlateau, Emprunt, Media
+from media.models import Livre, Dvd, Cd, JeuDePlateau, Media
 from users.models import User
+from loans.models import Loan
 
 
 class LivreAdmin(admin.ModelAdmin):
@@ -22,4 +23,4 @@ admin.site.register(Livre, LivreAdmin)
 admin.site.register(Dvd)
 admin.site.register(Cd)
 admin.site.register(JeuDePlateau)
-admin.site.register(Emprunt)
+admin.site.register(Loan)
