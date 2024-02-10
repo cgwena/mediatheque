@@ -1,6 +1,7 @@
 import pytest
 
 from django.urls import reverse, resolve
+
 from django.test import Client
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
@@ -204,3 +205,4 @@ class TestUrlsAuthentication:
         url = reverse('logout')
         response = client.get(url)
         assert response.status_code == 302
+
