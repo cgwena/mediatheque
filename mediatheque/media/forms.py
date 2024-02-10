@@ -1,10 +1,10 @@
 from django import forms
-from media.models import Livre, Dvd, Cd, JeuDePlateau
+from media.models import Book, Dvd, Cd, JeuDePlateau
 
 
-class LivreForm(forms.ModelForm):
+class BookForm(forms.ModelForm):
     class Meta:
-        model = Livre
+        model = Book
         fields = ("name", "auteur")
 
 

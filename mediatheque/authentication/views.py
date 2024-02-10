@@ -20,11 +20,9 @@ def user_login(request):
             else:
                 login(request, user)
                 if user.is_staff:
-                    # Redirect to a different page if is_staff is True
                     return redirect("home")
                 else:
-                    # Redirect to a different page if is_staff is False
-                    return redirect("user_home")
+                    return redirect("users_home")
     return render(
         request, "authentication/login.html", {"form": form, "message": message}
     )

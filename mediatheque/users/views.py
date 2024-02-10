@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from media.models import Livre, Dvd, Cd, JeuDePlateau
+from media.models import Book, Dvd, Cd, JeuDePlateau
 from users.models import User
 from users.forms import UserForm
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -32,7 +32,11 @@ def user_create(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
             user.save()
+<<<<<<< HEAD
+            return redirect("user_detail", user.id)
+=======
             return redirect(request, 'users/users.html')
+>>>>>>> main
     else:
         form = UserForm()
     return render(request, "users/user_create.html", {"form": form})
@@ -64,12 +68,17 @@ def user_delete(request, id):
 
 @login_required
 def home(request):
-    livres = Livre.objects.all()
+    books = Book.objects.all()
     dvds = Dvd.objects.all()
     cds = Cd.objects.all()
     jeux = JeuDePlateau.objects.all()
     return render(
         request,
+<<<<<<< HEAD
+        "users/home.html",
+        {"books": books, "dvds": dvds, "cds": cds, "jeux": jeux},
+=======
         "users/user_home.html",
         {"livres": livres, "dvds": dvds, "cds": cds, "jeux": jeux},
+>>>>>>> main
     )

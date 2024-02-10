@@ -4,7 +4,10 @@ import media
 from media import urls as media_urls
 from loans import urls as loans_urls
 from users import urls as users_urls
+
+from authentication import urls as authentication_urls
 from authentication import views as authentication_views
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -14,4 +17,5 @@ urlpatterns = [
     path("media/", include(media_urls)),
     path("loans/", include(loans_urls)),
     path("user/", include(users_urls)),
+    path("authentication", include(authentication_urls))
 ]

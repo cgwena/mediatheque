@@ -7,32 +7,32 @@ class Media(models.Model):
 
     def __str__(self):
         return f"{self.name}"
-    
 
-class Livre(Media):
-    def __str__(self):
-        return f"{self.name}"
 
+class Book(Media):
     auteur = models.fields.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.name}, {self.auteur}"
 
 
 class Dvd(Media):
-    def __str__(self):
-        return f"{self.name}"
-
     realisateur = models.fields.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.name}, {self.realisateur}"
 
 
 class Cd(Media):
-    def __str__(self):
-        return f"{self.name}"
-
     artiste = models.fields.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.name}, {self.artiste}"
 
 
 class JeuDePlateau(models.Model):
-    def __str__(self):
-        return f"{self.name}"
-
     name = models.fields.CharField(max_length=100)
     createur = models.fields.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return f"{self.name}, {self.createur}"
