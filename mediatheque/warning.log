@@ -332,3 +332,5 @@ Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: users/user-home.html
+Not Found: /accounts/login/
+Not Found: /accounts/login/

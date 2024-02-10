@@ -12,11 +12,7 @@
     <h2>{{user.last_name}} {{user.first_name}}</h2>
     <p>Email : {{user.email}}</p>
     
-<<<<<<< HEAD
-    <p>Nombre d'emprunts : {{user.nombreEmprunts}}</p>
-=======
     <p>Nombre d'emprunts en cours : {{user.nombreEmprunts}}</p>
->>>>>>> main
     
     <a href="{% url 'users' %}">Retour à la liste des membres</a> - 
     <a href="{% url 'user_update' user.id%}">Mettre à jour</a> -
