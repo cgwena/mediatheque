@@ -32,11 +32,7 @@ def user_create(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
             user.save()
-<<<<<<< HEAD
             return redirect("user_detail", user.id)
-=======
-            return redirect(request, 'users/users.html')
->>>>>>> main
     else:
         form = UserForm()
     return render(request, "users/user_create.html", {"form": form})
@@ -74,11 +70,6 @@ def home(request):
     jeux = JeuDePlateau.objects.all()
     return render(
         request,
-<<<<<<< HEAD
-        "users/home.html",
-        {"books": books, "dvds": dvds, "cds": cds, "jeux": jeux},
-=======
         "users/user_home.html",
-        {"livres": livres, "dvds": dvds, "cds": cds, "jeux": jeux},
->>>>>>> main
+        {"books": books, "dvds": dvds, "cds": cds, "jeux": jeux},
     )

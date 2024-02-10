@@ -9,9 +9,5 @@ urlpatterns = [
     path("users/<int:id>/update", users.views.user_update, name="user_update"),
     path("users/<int:id>/delete", users.views.user_delete, name="user_delete",
     ),
-<<<<<<< HEAD
-    path("users.home/", users.views.home, name="users_home"),
-=======
-    path("user_home/", users.views.home, name="user_home"),
->>>>>>> main
+    path("users/home/", users.views.home, name="users_home"),
 ]
