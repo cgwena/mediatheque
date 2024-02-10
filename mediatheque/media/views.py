@@ -5,10 +5,9 @@ from django.contrib.auth.decorators import (
     user_passes_test,
 )
 
-from media.models import Livre, Dvd, Cd, JeuDePlateau, Media
-from users.models import User
+from media.models import Book, Dvd, Cd, JeuDePlateau, Media
 from media.forms import (
-    LivreForm,
+    BookForm,
     DvdForm,
     CdForm,
     JeuForm,
@@ -28,14 +27,14 @@ def home(request):
 @login_required
 @user_passes_test(is_staff_user)
 def media(request):
-    livres = Livre.objects.all()
+    books = Book.objects.all()
     dvds = Dvd.objects.all()
     cds = Cd.objects.all()
     jeux = JeuDePlateau.objects.all()
     return render(
         request,
         "media/media.html",
-        {"livres": livres, "dvds": dvds, "cds": cds, "jeux": jeux},
+        {"books": books, "dvds": dvds, "cds": cds, "jeux": jeux},
     )
 
 
@@ -56,15 +55,15 @@ def jeu_detail(request, id):
 
 @login_required
 @user_passes_test(is_staff_user)
-def livre_create(request):
+def book_create(request):
     if request.method == "POST":
-        form = LivreForm(request.POST)
+        form = BookForm(request.POST)
         if form.is_valid():
-            livre = form.save()
-            return redirect("media_detail", livre.id)
+            book = form.save()
+            return redirect("media_detail", book.id)
     else:
-        form = LivreForm()
-    return render(request, "media/livre_create.html", {"form": form})
+        form = BookForm()
+    return render(request, "media/book_create.html", {"form": form})
 
 
 @login_required
@@ -108,15 +107,15 @@ def jeu_create(request):
 
 @login_required
 @user_passes_test(is_staff_user)
-def media_update(request, id):
-    livre = Livre.objects.get(id=id)
+def book_update(request, id):
+    book = Book.objects.get(id=id)
     if request.method == "POST":
-        form = LivreForm(request.POST, instance=livre)
+        form = BookForm(request.POST, instance=book)
         if form.is_valid():
             form.save()
-            return redirect("media_detail", media.id)
+            return redirect("media_detail", book.id)
     else:
-        form = LivreForm(instance=livre)
+        form = BookForm(instance=book)
     return render(request, "media/media_update.html", {"form": form})
 
 

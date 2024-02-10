@@ -11,8 +11,8 @@
     <h1>Notre Livre, notre média</h1>
     
     <h2>{{media.name}}</h2>
-    {% if media.livre %}
-    <p>Auteur: {{ media.livre.auteur }}</p>
+    {% if media.book %}
+    <p>Auteur: {{ media.book.auteur }}</p>
     {% elif media.dvd %}
     <p>Réalisateur: {{ media.dvd.realisateur }}</p>
     {% elif media.cd %}
